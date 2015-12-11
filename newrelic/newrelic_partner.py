@@ -1,8 +1,9 @@
 #!/usr/bin/python
 import json
-import newrelic.account
+import newrelic
 
-class NewRelicPartnerApi(newrelic.account.Account):
+
+class NewRelicPartnerApi(newrelic.NewRelicApi):
 
     def __init__(self, api_key, partner_id):
         super(NewRelicPartnerApi, self).__init__(api_key)
@@ -21,4 +22,3 @@ class NewRelicPartnerApi(newrelic.account.Account):
 
     def delete_account(self, account_id):
         self.delete('account/%s' % account_id)
-
